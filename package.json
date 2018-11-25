@@ -1,0 +1,23 @@
+{
+  "name": "phones-catalog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alisa-Filatova/phones-catalog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alisa-Filatova/phones-catalog.git/issues"
+  },
+  "homepage": "https://github.com/Alisa-Filatova/phones-catalog.git#readme",
+  "devDependencies": {
+    "node-static": "^0.7.11"
+  }
+}
