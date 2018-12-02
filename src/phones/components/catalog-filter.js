@@ -1,32 +1,35 @@
-class CatalogFilter {
+import Component from '../../common/component.js';
+
+const FILTER_ITEMS = [
+	{ name: 'All', value: 'all' },
+	{ name: 'Alphabetical', value: 'name' },
+	{ name: 'Newest', value: 'age' }
+];
+
+class CatalogFilter extends Component {
 
   render() {
-    const FILTER_ITEMS = [
-      { name: 'All', value: 'all' },
-      { name: 'Alphabetical', value: 'name' },
-      { name: 'Newest', value: 'age' }
-    ];
+		const { formatProps, createElement } = this;
 
-    const filter = document.createElement('div');
-    const title = document.createElement('span');
-    title.textContent = 'Sort by: ';
+		const wrapper = createElement(formatProps('div', {},
+			formatProps('span', {}, 'Sort by: '),
+		));
 
-    const select = document.createElement('select');
-    select.className = 'filter';
+		const select = createElement(formatProps('select', {},
+			formatProps('select', { className: 'filter'}),
+		));
 
-    FILTER_ITEMS.forEach((item => {
-      const option = document.createElement('option');
-      option.setAttribute('value', item.value);
-      option.textContent = item.name;
+		FILTER_ITEMS.forEach(item => {
+			select.appendChild(createElement(
+				formatProps('option', { value: item.value }, item.name)
+			));
+		});
 
-      select.insertAdjacentElement('beforeEnd', option);
-    }));
+		wrapper.appendChild(select);
 
-    filter.insertAdjacentElement('afterbegin', select);
-    filter.insertAdjacentElement('afterbegin', title);
+		return wrapper;
+	}
 
-    return filter;
-  }
 }
 
 export default CatalogFilter;

@@ -9,7 +9,7 @@ body {
   background-color: lightgoldenrodyellow;
 }
 
-.app {
+.page {
   display: flex;
   justify-content: center;
 }

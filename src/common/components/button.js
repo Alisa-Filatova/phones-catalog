@@ -1,18 +1,22 @@
-class Button {
+import Component from '../component.js';
+
+class Button extends Component {
 
   constructor(text, onClick) {
+    super();
     this.text = text;
     this.onClick = onClick;
   }
 
   render() {
-    const button = document.createElement('button');
-    button.className = 'button';
-    button.onclick = this.onClick;
-    button.textContent = this.text;
-
-    return button;
+    return this.createElement(
+      this.formatProps('button',
+        { className: 'button', onclick: this.onClick },
+        this.text
+      )
+    );
   }
+
 }
 
 export default Button;

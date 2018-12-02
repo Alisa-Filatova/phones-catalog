@@ -1,21 +1,24 @@
+import Component from '../../common/component.js';
 import CatalogItem from './catalog-item.js';
 
-class Catalog {
+class Catalog extends Component {
 
   constructor(items) {
+    super();
     this.items = items;
   }
 
   render() {
-    const catalogBox = document.createElement('ul');
-    catalogBox.className = 'phones';
+    const catalogBox = this.createElement(
+      this.formatProps('ul', { className: 'phones' })
+    );
 
     this.items.forEach(item => {
-      const catalogItem = new CatalogItem(item).render();
-      catalogBox.insertAdjacentElement('afterbegin', catalogItem);
+      catalogBox.appendChild(new CatalogItem(item).render());
     });
 
     return catalogBox;
   }
 }
+
 export default Catalog;
