@@ -10,20 +10,20 @@ class CatalogItem extends Component {
   }
 
   render() {
-		const { formatProps, createElement } = this;
+    const { formatProps, createElement } = this;
 
     const catalogItem = createElement(
-			formatProps('li', { className: 'thumbnail'},
-				formatProps('a', { className: 'thumb', href: this.item.id },
-					formatProps('img', { src: this.item.imageUrl, alt: this.item.name }),
+      formatProps('li', { className: 'thumbnail'},
+        formatProps('a', { className: 'thumb', href: this.item.id },
+          formatProps('img', { src: this.item.imageUrl, alt: this.item.name }),
         ),
-				formatProps('a', { href: this.item.id }, this.item.name),
-				formatProps('p', {}, this.item.snippet),
+        formatProps('a', { href: this.item.id }, this.item.name),
+        formatProps('p', {}, this.item.snippet),
       ));
 
-		catalogItem.appendChild(new Button('Add to cart', this.onClick).render());
+    catalogItem.appendChild(new Button('Add to cart', this.onClick).render());
 
-		return catalogItem;
+    return catalogItem;
   }
 
 }

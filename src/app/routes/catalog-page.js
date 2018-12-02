@@ -5,18 +5,18 @@ import CatalogFilter from '../../phones/components/catalog-filter.js';
 import Sidebar from '../../app/components/sidebar.js';
 
 class CatalogPage extends Component {
-	render() {
-		const { formatProps, createElement } = this;
-		const page = createElement(formatProps('div', { className: 'page' }));
+  render() {
+    const { formatProps, createElement } = this;
+    const page = createElement(formatProps('div', { className: 'page' }));
 
-		PhoneService.getPhones().then((phones) => {
-			page.appendChild(new Catalog(phones).render());
-		});
+    PhoneService.getPhones().then((phones) => {
+      page.appendChild(new Catalog(phones).render());
+    });
 
-		page.appendChild(new Sidebar(new CatalogFilter().render()).render());
+    page.appendChild(new Sidebar(new CatalogFilter().render()).render());
 
-		return page;
-	}
+    return page;
+  }
 }
 
 export default CatalogPage;
